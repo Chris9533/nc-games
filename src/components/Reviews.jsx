@@ -2,20 +2,37 @@ import { useState, useEffect } from "react"
 import { getReviews } from "../utils/api"
 import { CCard, CCardImage, CCardBody, CCardTitle, CCardText, CButton } from '@coreui/react';
 import { Link } from "react-router-dom"
+import ItemQueries from "./itemqueries";
+import { useSearchParams } from "react-router-dom";
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([])
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [loading, setIsLoading] = useState(false)
+    const searchTerm = searchParams.get("category")
 
     useEffect(() => {
-        getReviews().then((reviews) => {
+      setIsLoading(true)
+        getReviews(searchTerm).then((reviews) => {
             setReviews(reviews)
+            setIsLoading(false)
          })
 
-    }, [])
+    }, [searchTerm])
 
 
+  
+    if(loading) return (
+      <main>
+    <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <p>Loading</p>
+    </ main>
+    )
     return (
+      
         <ul className="reviewcard" >
+          <h2>Reviews</h2>
+          <ItemQueries setSearchParams={setSearchParams} />
           <main>
           {reviews.map((review) => {
             return (
