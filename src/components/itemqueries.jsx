@@ -21,6 +21,7 @@ const ItemQueries = ({setSearchParams}) => {
         setCategoryTitle(title)
 
     }
+   
 
      return (
 

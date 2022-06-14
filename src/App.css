@@ -6,6 +6,7 @@
 }
 
 
+
 #homepageimg {
   max-width: 90%;
   border-radius: 1rem;
@@ -41,6 +42,20 @@
   margin: 1.5rem;
   background-color: blueviolet;
 }
+
+#reviewimage {
+  width:300px;
+}
+
+#votes {
+  font-size: 1.5rem;
+  border: 5px solid rgb(1, 5, 248);
+  border-radius: 10rem;
+}
+
+
+
+
 
 @media only screen and (min-width: 650px) {
   .App {

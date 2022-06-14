@@ -5,8 +5,10 @@ import Nav from './components/Nav';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import HomePage from './components/Homepage';
 import Reviews from './components/Reviews';
+import Review from "./components/Review"
 import '@coreui/coreui/dist/css/coreui.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 
 
@@ -21,7 +23,7 @@ function App() {
       <Routes>
       <Route path="/" element={<HomePage />}/>
       <Route path="/reviews" element={<Reviews />}/>
-      <Route path="/reviews?:category=" element={<HomePage />} />
+      <Route path="/reviews/:review_id" element={<Review />} />
     </Routes>
     </div>
     </BrowserRouter>
