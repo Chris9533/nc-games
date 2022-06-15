@@ -3,6 +3,7 @@ import { getUsers } from "../utils/api"
 import { CCard, CCardImage, CCardBody, CCardTitle, CCardText, CButton } from '@coreui/react';
 import { UserContext } from "../contexts/user";
 import { useContext } from "react";
+import { Link } from "react-router-dom"
 
 const Users = ({setActiveUser}) => {
 
@@ -30,7 +31,9 @@ const Users = ({setActiveUser}) => {
             <CCardText>
               {user.name}
             </CCardText>
+            <Link className="navbutton" to="/">
             <CButton disabled={activeUser != null}onClick={() => setActiveUser(user)}>Login</CButton> 
+            </Link>
           </CCardBody>
         </CCard>
               )})
