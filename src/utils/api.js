@@ -41,3 +41,18 @@ export const getComments = (review_id) => {
         return res.data.comments;
     })
 }
+
+export const getUsers = () => {
+    return gamesApi.get("/users")
+    .then((res) => {
+        return res.data.users
+    })
+}
+
+export const addComment = (review_id, username, body) => {
+    return gamesApi.post(`/reviews/${review_id}/comments`, { username: username, body: body } )
+    .then((res) => {
+        return res.data.comment
+
+    })
+}
