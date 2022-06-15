@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import dayjs from 'dayjs'
 import Votes from "./Votes";
+import Comments from "./comments";
 
 const Review = () => {
 
@@ -32,7 +33,7 @@ const Review = () => {
 
 
     return (
-
+<>
         <main>
         <Card  style={{ width: '24rem' }}>
   <Card.Img variant="top" src={Review.review_img_url} alt={Review.title} />
@@ -52,7 +53,9 @@ const Review = () => {
     <Votes review_id={Review.review_id} setVotesChange={setVotesChange} votesChange={votesChange} />
   </Card.Body>
 </Card>
+<Comments review_id={review_id} />
         </main>
+</>
     
     )
 
