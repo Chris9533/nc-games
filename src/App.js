@@ -8,24 +8,34 @@ import Reviews from './components/Reviews';
 import Review from "./components/Review"
 import '@coreui/coreui/dist/css/coreui.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { UserContext } from "./contexts/user"
+import { useState } from "react"
+import Users from './components/Users';
+import PostComment from './components/PostComment';
 
 
 
 
 function App() {
 
+  const [activeUser, setActiveUser] = useState(null)
+
 
   return (
     <BrowserRouter>
+    <UserContext.Provider value={activeUser}>
     <div className="App">
     <Header />
-    <Nav />
+    <Nav setActiveUser={setActiveUser}/>
       <Routes>
       <Route path="/" element={<HomePage />}/>
       <Route path="/reviews" element={<Reviews />}/>
       <Route path="/reviews/:review_id" element={<Review />} />
+      <Route path="/login" element={<Users setActiveUser={setActiveUser} />}/>
+      <Route path="/reviews/:review_id/comments" element={<PostComment />} />
     </Routes>
     </div>
+    </UserContext.Provider>
     </BrowserRouter>
   );
 }

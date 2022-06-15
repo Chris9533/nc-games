@@ -2,13 +2,18 @@ import { useParams } from "react-router-dom"
 import { getReview } from "../utils/api";
 import { useState, useEffect } from "react"
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { CButton } from '@coreui/react';
 import dayjs from 'dayjs'
 import Votes from "./Votes";
 import Comments from "./comments";
+import { Link } from "react-router-dom"
+import { UserContext } from "../contexts/user";
+import { useContext } from "react";
 
 const Review = () => {
 
     const { review_id } = useParams();
+    const user = useContext(UserContext);
    
     const [Review, setReview] = useState([])
     const [votesChange, setVotesChange] = useState(0)
@@ -51,9 +56,11 @@ const Review = () => {
     <ListGroupItem>Created by {Review.owner}</ListGroupItem>
     <ListGroupItem>{comments.length} Comments</ListGroupItem>
   </ListGroup>
-  <Card.Body>
-    <Votes review_id={Review.review_id} setVotesChange={setVotesChange} votesChange={votesChange} />
-  </Card.Body>
+  <Card.Body>{user === null ? null :  <Votes review_id={Review.review_id} setVotesChange={setVotesChange} votesChange={votesChange} />}
+   
+  </Card.Body>{ user !== null ?
+  <Link  to={`/reviews/${Review.review_id}/comments`}><CButton>Leave Comment</CButton></Link> : <p><Link  to="/login">Login</Link> to leave a comment or vote on a review</p>
+}
 </Card>
 <Comments review_id={review_id} comments={comments} setComments={setComments} />
         </main>

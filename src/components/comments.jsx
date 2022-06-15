@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { getComments } from "../utils/api"
 import dayjs from 'dayjs'
 
 const Comments = ({review_id, comments, setComments}) => {
 
-    // const [comments, setComments] = useState([])
 
     useEffect(() => {
         getComments(review_id)
@@ -12,10 +11,11 @@ const Comments = ({review_id, comments, setComments}) => {
             setComments(comments);
 
         })
-    }, [review_id])
+    }, [review_id, setComments])
     return (
         <section className="comments">
         <h2>Comments</h2>
+
         {comments.map((comment) => {
             return (
 
