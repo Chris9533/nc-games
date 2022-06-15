@@ -52,6 +52,20 @@
   border: 5px solid rgb(1, 5, 248);
   border-radius: 10rem;
 }
+#votes-red {
+  font-size: 1.5rem;
+  border: 5px solid rgb(248, 1, 1);
+  border-radius: 10rem;
+}
+#votes-green {
+  font-size: 1.5rem;
+  border: 5px solid rgb(30, 255, 0);
+  border-radius: 10rem;
+}
+
+.votebutton {
+  margin: 5px;
+}
 
 
 
