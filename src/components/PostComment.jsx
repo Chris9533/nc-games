@@ -11,19 +11,27 @@ const PostComment = () => {
     const user = useContext(UserContext);
 
     const [input, setInput] = useState("");
-    const [ comment, SetComment ] = useState()
+    const [ comment, setComment ] = useState()
     const [ isError, setIsError ] = useState(false)
+    const [placeholder, setPlaceholder] = useState("")
 
     const handleSubmit = (event) => {
-        event.preventDefault();
-        addComment(review_id, user.username, input)
-        .then((comment) => {
-            SetComment(comment)
+        if (input.length === 0) {
+            event.preventDefault();
+            setPlaceholder("Can't add an empty comment")
 
-        }).catch(() => {
-            setIsError(true)
+        } else {
 
-        })
+            event.preventDefault();
+            addComment(review_id, user.username, input)
+            .then((comment) => {
+                setComment(comment)
+    
+            }).catch(() => {
+                setIsError(true)
+    
+            })
+        }
 
         
       };
@@ -41,6 +49,7 @@ return (
 <input
   value={input}
   onChange={(event) => setInput(event.target.value)}
+  placeholder={placeholder}
 />
 <button>Submit</button>
 </form> )
