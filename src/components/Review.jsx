@@ -13,6 +13,7 @@ const Review = () => {
     const [Review, setReview] = useState([])
     const [votesChange, setVotesChange] = useState(0)
     const [ votesColor, setVotesColor ] = useState("votes")
+    const [comments, setComments] = useState([])
 
     useEffect(() => {
        getReview(review_id).then((review) => {
@@ -45,15 +46,16 @@ const Review = () => {
   </Card.Body>
   <ListGroup className="list-group-flush">
     <ListGroupItem>Category: {Review.category}</ListGroupItem>
-    <ListGroupItem>Created at : {dayjs(Review.created_at).format("DD/MM/YYYY HH:mm:ss")}</ListGroupItem>
-    <ListGroupItem>Designer : {Review.designer}</ListGroupItem>
-    <ListGroupItem>Owner : {Review.owner}</ListGroupItem>
+    <ListGroupItem>{dayjs(Review.created_at).format("DD/MM/YYYY HH:mm:ss")}</ListGroupItem>
+    <ListGroupItem>Designed by {Review.designer}</ListGroupItem>
+    <ListGroupItem>Created by {Review.owner}</ListGroupItem>
+    <ListGroupItem>{comments.length} Comments</ListGroupItem>
   </ListGroup>
   <Card.Body>
     <Votes review_id={Review.review_id} setVotesChange={setVotesChange} votesChange={votesChange} />
   </Card.Body>
 </Card>
-<Comments review_id={review_id} />
+<Comments review_id={review_id} comments={comments} setComments={setComments} />
         </main>
 </>
     

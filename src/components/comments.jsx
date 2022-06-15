@@ -2,9 +2,9 @@ import { useState, useEffect } from "react"
 import { getComments } from "../utils/api"
 import dayjs from 'dayjs'
 
-const Comments = ({review_id}) => {
+const Comments = ({review_id, comments, setComments}) => {
 
-    const [comments, setComments] = useState([])
+    // const [comments, setComments] = useState([])
 
     useEffect(() => {
         getComments(review_id)
