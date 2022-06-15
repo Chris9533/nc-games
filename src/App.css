@@ -100,10 +100,15 @@
     ;
   }
 
-  #navlist {
+  .comments {
+    display: block;
+    padding: 1rem;
   
-    
   }
+}
+
+.card.text-center{
+  margin: 1rem;
 }
 
 .lds-spinner {
