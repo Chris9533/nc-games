@@ -36,7 +36,7 @@ const PostComment = () => {
         
       };
       if(user === null) {
-        return <p>You need to <Link  to={`/reviews/${review_id}`}>Login</Link> to leave a comment</p>
+        return <p>You need to <Link  to="/login">Login</Link> to leave a comment</p>
       } else if (isError){
         return <p>Oops something went wrong, your comment has not been submitted! Click <Link  to={`/reviews/${review_id}`}>here</Link> to return to the review</p>
 
