@@ -9,16 +9,29 @@ const Reviews = () => {
     const [reviews, setReviews] = useState([])
     const [searchParams, setSearchParams] = useSearchParams();
     const [loading, setIsLoading] = useState(false)
+    const [sortBy, setSortBy] = useState([null, null])
+    const [categoryTitle, setCategoryTitle] = useState("Category")
+    const [sortByTitle, setSortByTitle] = useState("Sort by")
     const searchTerm = searchParams.get("category")
 
     useEffect(() => {
       setIsLoading(true)
-        getReviews(searchTerm).then((reviews) => {
+        getReviews(searchTerm, sortBy).then((reviews) => {
             setReviews(reviews)
+            if(searchTerm === null) {
+              setCategoryTitle("category")
+            } else {
+              setCategoryTitle(`Category:  ${searchTerm}`)
+            }
+            if(sortBy[0] === null) {
+              setSortByTitle("Sort by") 
+            } else {
+              setSortByTitle(`Sort by:  ${sortBy[0]} ${sortBy[1]}`)
+            }
             setIsLoading(false)
          })
 
-    }, [searchTerm])
+    }, [searchTerm, sortBy])
    
 
 
@@ -33,7 +46,7 @@ const Reviews = () => {
       
         <ul className="reviewcard" >
           <h2>Reviews</h2>
-          <ItemQueries setSearchParams={setSearchParams} />
+          <ItemQueries setSearchParams={setSearchParams} setSortBy={setSortBy} categoryTitle={categoryTitle} sortByTitle={sortByTitle} />
           <main>
           {reviews.map((review) => {
             return (
