@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { getCategories } from "../utils/api";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
-import { Link } from "react-router-dom"
+
 
 
 const ItemQueries = ({setSearchParams, setSortBy, categoryTitle, sortByTitle}) => {

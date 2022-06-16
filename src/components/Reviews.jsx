@@ -11,7 +11,7 @@ const Reviews = () => {
     const [loading, setIsLoading] = useState(false)
     const [sortBy, setSortBy] = useState([null, null])
     const [categoryTitle, setCategoryTitle] = useState("Category")
-    const [sortByTitle, setSortByTitle] = useState("sort_by")
+    const [sortByTitle, setSortByTitle] = useState("Sort by")
     const searchTerm = searchParams.get("category")
 
     useEffect(() => {
@@ -21,12 +21,12 @@ const Reviews = () => {
             if(searchTerm === null) {
               setCategoryTitle("category")
             } else {
-              setCategoryTitle(searchTerm)
+              setCategoryTitle(`Category:  ${searchTerm}`)
             }
             if(sortBy[0] === null) {
-              setSortByTitle("sort_by") 
+              setSortByTitle("Sort by") 
             } else {
-              setSortByTitle(sortBy[0] + " " + sortBy[1])
+              setSortByTitle(`Sort by:  ${sortBy[0]} ${sortBy[1]}`)
             }
             setIsLoading(false)
          })
