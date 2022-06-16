@@ -1,25 +1,32 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { getComments } from "../utils/api"
 import dayjs from 'dayjs'
+import DeleteComment from "./DeleteComment"
 
 const Comments = ({review_id, comments, setComments}) => {
+
+    const [isDeleted, setIsDeleted]  = useState(false)
+    const [disableButton, setDisableButton] = useState(false)
+    
 
 
     useEffect(() => {
         getComments(review_id)
         .then((comments) => {
             setComments(comments);
+            setDisableButton(false)
 
         })
-    }, [review_id, setComments])
+    }, [review_id, setComments, isDeleted])
     return (
         <section className="comments">
         <h2>Comments</h2>
 
         {comments.map((comment) => {
             return (
+                <section key={comment.comment_id} >
 
-        <div key={comment.comment_id}className="card text-center">
+        <div className="card text-center">
   <div className="card-header">
     {comment.author}
   </div>
@@ -31,6 +38,8 @@ const Comments = ({review_id, comments, setComments}) => {
   {dayjs(comment.created_at).format("DD/MM/YYYY HH:mm:ss")}
   </div>
 </div>
+<DeleteComment  username={comment.author} comment_id={comment.comment_id} setIsDeleted={setIsDeleted} disableButton={disableButton} setDisableButton={setDisableButton}/>
+</section>
             )
             
         })}
