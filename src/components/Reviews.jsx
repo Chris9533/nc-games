@@ -19,7 +19,7 @@ const Reviews = () => {
         getReviews(searchTerm, sortBy).then((reviews) => {
             setReviews(reviews)
             if(searchTerm === null) {
-              setCategoryTitle("category")
+              setCategoryTitle("Category")
             } else {
               setCategoryTitle(`Category:  ${searchTerm}`)
             }
@@ -37,7 +37,7 @@ const Reviews = () => {
 
   
     if(loading) return (
-      <main>
+      <main id="loading">
     <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     <p>Loading</p>
     </ main>
@@ -57,7 +57,7 @@ const Reviews = () => {
         <CCardText>
           Category: {review.category}
         </CCardText>
-        <Link  to={`/reviews/${review.review_id}`}><CButton>View Item</CButton></Link>
+        <Link  to={`/reviews/${review.review_id}`}><CButton>View</CButton></Link>
       </CCardBody>
     </CCard>
           )})

@@ -1,4 +1,4 @@
-import { useState, useContext} from "react"
+import { useState} from "react"
 import { CButton } from '@coreui/react';
 import { patchVotes } from "../utils/api";
 
@@ -27,7 +27,7 @@ const Votes = ({review_id, setVotesChange, votesChange}) => {
     </>
     )
 } else {
-return <p>Thanks for voting!</p>
+return <p>Thanks for voting! <CButton className="votebutton" onClick={() => {votesChange === 1 ? handleClick(-1) : handleClick(1)}}>Undo</CButton></p>
     }
 }
 

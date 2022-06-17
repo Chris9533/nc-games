@@ -26,7 +26,7 @@ const DeleteComment = ({username, comment_id, setIsDeleted, disableButton, setDi
     }
 
     else if (user === null) {
-        return <p>Please <Link  to="/login">Login</Link> to remove a comment</p>
+        return <p><Link  to="/login">Login</Link> to remove a comment</p>
     } else if (user.username !== username) {
         return (
             <p>You can only delete your own comments</p>
