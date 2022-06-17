@@ -2,7 +2,65 @@
 
 .App {
   text-align: center;
-  background-color: aqua;
+  background: linear-gradient(#e66465, #9198e5);
+}
+
+#title {
+  font-size: 3rem;
+  font-family: Georgia, serif;
+  padding: 2rem;
+  color: aliceblue;
+  background-color: black;
+}
+
+h2 {
+  text-decoration: underline;
+  font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+}
+
+#loggedinimage {
+  max-width:8rem;
+  border-radius: 25%;
+  padding-bottom: 10px;
+  margin-left: 1rem;
+}
+
+#loggedinuser {
+  font-weight: bold;
+  display:block;
+  flex-direction: column;
+  margin-top: 0.5rem;
+  border: solid black;
+  border-radius: 10%;
+}
+
+.logoutbutton {
+  display: flex;
+  align-items: center;
+  width: 100px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.dropdown {
+  display: inline-block;
+  flex-direction: row;
+}
+
+label{
+  display: inline-flex;
+
+}
+
+.submitform {
+  display: block;
+  flex-direction: row;
+align-items: center;
+justify-content: space-evenly;
+}
+
+#loading {
+  display: block;
 }
 
 #activeuser {
@@ -16,7 +74,7 @@
 
 #navlist {
   padding: 0px;
-  display: flex;
+  display: inline-block;
   flex-direction: column;
 }
 
@@ -43,6 +101,10 @@
 #dropdown-basic-button {
   margin: 1.5rem;
   background-color: blueviolet;
+}
+
+#leavecomment {
+  margin-bottom: 1rem;
 }
 
 #reviewimage {
@@ -109,8 +171,21 @@
 
   .comments {
     display: block;
+    max-width: 600px;
     padding: 1rem;
   
+  }
+  
+
+  #navlist {
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dropdown {
+    display: inline-block;
+    flex-direction: column;
   }
 }
 
@@ -196,4 +271,11 @@
     opacity: 0;
   }
 }
+
+
+
+
+
+
+
 

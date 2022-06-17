@@ -45,15 +45,21 @@ const PostComment = () => {
      else if(comment === undefined) {
 
 return (
-<form  onSubmit={handleSubmit}>
+  <main>
+<form className="submitform" onSubmit={handleSubmit}>
+    <div>
 <label>Leave Comment</label>
+</div>
+<div>
 <input
   value={input}
   onChange={(event) => setInput(event.target.value)}
   placeholder={placeholder}
-/>
+  />
+  </div>
 <button disabled={disableButton}>Submit</button>
-</form> )
+</form>
+</main> )
       } else {
         return (
 <main>

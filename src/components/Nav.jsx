@@ -21,8 +21,8 @@ const Nav = ({setActiveUser}) => {
             <ul id="navlist" >
                 <Link className="navbutton" to="/"><CButton>Homepage</CButton></Link>
                 <Link  className="navbutton" to="/reviews"><CButton>Reviews</CButton></Link>
-                <p id="activeuser">{`Hello ${user.username}`}</p>
-                <CButton className="logoutbutton" onClick={() => setActiveUser(null)}>Logout</CButton>
+                <div id="loggedinuser"><p id="activeuser">{user.username}</p><img id="loggedinimage" src={user.avatar_url} alt="Logged in user" />
+                <CButton className="logoutbutton" onClick={() => setActiveUser(null)}>Logout</CButton></div>
             </ul>
         )
     }

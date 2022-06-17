@@ -21,7 +21,7 @@ const Users = ({setActiveUser}) => {
 
     if (isLoading) {
       return (
-        <main>
+        <main id="loading">
         <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         <p>Loading</p>
         </ main>

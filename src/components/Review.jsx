@@ -46,7 +46,7 @@ const Review = () => {
 
    if(isLoading) {
     return (
-      <main>
+      <main id="loading">
       <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
       <p>Loading</p>
       </ main>
@@ -80,7 +80,7 @@ else if (isError === 404) {
   <Card.Body>{user === null ? null :  <Votes review_id={Review.review_id} setVotesChange={setVotesChange} votesChange={votesChange} />}
    
   </Card.Body>{ user !== null ?
-  <Link  to={`/reviews/${Review.review_id}/comments`}><CButton id="leavecomment">Leave Comment</CButton></Link> : <p><Link  to="/login">Login</Link> to leave a comment or vote on a review</p>
+  <Link  to={`/reviews/${Review.review_id}/comments`}><CButton id="leavecomment">Leave Comment</CButton></Link> : <p>Please <Link  to="/login">Login</Link> to leave a comment or vote on a review</p>
 }
 </Card>
 <Comments review_id={review_id} comments={comments} setComments={setComments} />
