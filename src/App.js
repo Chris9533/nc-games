@@ -12,6 +12,7 @@ import { UserContext } from "./contexts/user"
 import { useState } from "react"
 import Users from './components/Users';
 import PostComment from './components/PostComment';
+import ErrorPage from './components/ErrorPage';
 
 
 
@@ -28,6 +29,7 @@ function App() {
     <Header />
     <Nav setActiveUser={setActiveUser}/>
       <Routes>
+      <Route path="/:any" element={<ErrorPage />}/>
       <Route path="/" element={<HomePage />}/>
       <Route path="/reviews" element={<Reviews />}/>
       <Route path="/reviews/:review_id" element={<Review />} />

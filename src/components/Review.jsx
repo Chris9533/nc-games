@@ -19,10 +19,15 @@ const Review = () => {
     const [votesChange, setVotesChange] = useState(0)
     const [ votesColor, setVotesColor ] = useState("votes")
     const [comments, setComments] = useState([])
+    const [isError, setIsError] = useState(null)
 
     useEffect(() => {
        getReview(review_id).then((review) => {
          setReview(review)
+       })
+       .catch((err) => {
+        setIsError(err.response.status)
+
        })
     }, [review_id])
 
@@ -37,7 +42,11 @@ const Review = () => {
    }, [votesChange])
 
 
-
+if (isError === 404) {
+  return (
+    <p>Oops this review doesn't exist, go back to the <Link  to="/reviews">Review page</Link> </p>
+  )
+}
     return (
 <>
         <main>
