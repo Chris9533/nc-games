@@ -9,14 +9,24 @@ const Users = ({setActiveUser}) => {
 
     const [users, setUsers] = useState([])
     const activeUser = useContext(UserContext);
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
+      setIsLoading(true)
         getUsers().then((users) => {
             setUsers(users)
+            setIsLoading(false);
         })
     }, [])
 
-    
+    if (isLoading) {
+      return (
+        <main>
+        <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        <p>Loading</p>
+        </ main>
+      )
+    }
         return (
             <>
             <main>

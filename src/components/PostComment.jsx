@@ -14,6 +14,7 @@ const PostComment = () => {
     const [ comment, setComment ] = useState()
     const [ isError, setIsError ] = useState(false)
     const [placeholder, setPlaceholder] = useState("")
+    const [disableButton, setDisableButton] = useState(false)
 
     const handleSubmit = (event) => {
         if (input.length === 0) {
@@ -21,7 +22,7 @@ const PostComment = () => {
             setPlaceholder("Can't add an empty comment")
 
         } else {
-
+            setDisableButton(true);
             event.preventDefault();
             addComment(review_id, user.username, input)
             .then((comment) => {
@@ -51,7 +52,7 @@ return (
   onChange={(event) => setInput(event.target.value)}
   placeholder={placeholder}
 />
-<button>Submit</button>
+<button disabled={disableButton}>Submit</button>
 </form> )
       } else {
         return (

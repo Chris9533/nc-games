@@ -57,7 +57,7 @@ const Reviews = () => {
         <CCardText>
           Category: {review.category}
         </CCardText>
-        <Link  to={`/reviews/${review.review_id}`}><CButton>View Item</CButton></Link>
+        <Link  to={`/reviews/${review.review_id}`}><CButton>View</CButton></Link>
       </CCardBody>
     </CCard>
           )})
